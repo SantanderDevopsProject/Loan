@@ -1,0 +1,19 @@
+#1. what is your action name:?
+name: Building something  # NAME
+#2 when should run our action? : EVENT. things the happen on the repo. creates a pull request, create branch, push 
+on: [push]
+#3 what is it that you want to you run? 
+  # a. things to run are defined in jobs. arrays
+  # b. where should we run the job? runs-on
+  # c. what are the steps to run
+jobs:
+  check-linux-version:
+    runs-on: ubuntu-latest # linux
+    steps:
+      - uses: actions/checkout@v4
+      - name: first step is to list all items in the repositry
+        run: ls
+      - name: check system memory
+        run: free
+      - name: check system data usage
+        run: df -h
